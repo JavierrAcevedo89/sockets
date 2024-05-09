@@ -9,9 +9,17 @@
     <!--Es una librería que se utiliza tanto en el sever como en el cliente-->
     <script src="/socket.io/socket.io.js"></script>
     <!--Mandamos a llamar nuestra propia librería main.js-->
-    <script src="main.js"></script>
+    <script src="/server/main.js"></script>
 </head>
 <body>
     <h1>Mi aplicación</h1>
+    <div id="messages"></div>
+    <br>
+    <form onsubmit="return addMessage(this)">
+        <input type="text" id="username" placeholder="Jaiver">
+        <input type="text" id="texto" placeholder="Cuéntanos algo">
+        <input type="submit" value="Enviar">
+    </form>
+</div>
 </body>
 </html>
