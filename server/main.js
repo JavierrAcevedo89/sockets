@@ -3,6 +3,11 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
+var messages = [{
+    id: 1,
+    texto: "Ke pollo",
+    autor: "Javier Acevedo"
+}];
 /* Usamos un middleware para usar elementos estáticos en la sección pública de la aplicación */
 app.use(express.static('public'));
 
@@ -15,11 +20,10 @@ mandamos un mensaje de control por consola para saber que pasa
 y tneemos que hacer el mensaje venga del navegador web mediante HTML y JS */
 io.on('connection', function(socket){
     console.log('Alguien se ha conectado con socket')
-    /* Aquí controlamos los eventos del cliente mediante sockets */
-    socket.emit('messages',{
-        id: 1,
-        texto: "K rollo con el pollo",
-        autor: "Javier Acevedo"
+    socket.emit('messages',messages);
+    socket.on('new-message', function(data){
+        messages.push(data);
+        io.sockets.emit('messages', messages);
     });
 });
 
