@@ -1,4 +1,5 @@
 var express = require('express');
+const cors = require('cors');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
@@ -11,6 +12,7 @@ var messages = [{
 
 /* Usamos un middleware para usar elementos estáticos en la sección pública de la aplicación */
 app.use(express.static('public'));
+app.use(cors()); 
 
 app.get('/',function(req, res){
     res.status(200).send("Hola Mundo");
