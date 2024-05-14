@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
-
-    <title>Mi apliacación con Sockets</title>
+    <title>Mi aplicación con Sockets</title>
     <!--Mandamos llamar la librería para que el frontend use socket.io-->
     <!--Es una librería que se utiliza tanto en el sever como en el cliente-->
     <script src="/socket.io/socket.io.js"></script>
@@ -15,14 +13,16 @@
 </head>
 <body>
     <h1>Mi aplicación</h1>
+    <!--Queremos que estos mensajes se vean en nuestra pagina como un chat-->
     <div id="messages"></div>
     <br>
-    <!--Creamos un formuario para mandar mensajes-->
-    <form onsubmit="return addMessages(this)">
-        <input type="text" id="username" placeholder="Tu nombre">
-        <input type="text" id="texto" placeholder="Cuentanos algo">
-        <input type="submit" value="Enviar">
-    </form>
+<form onsubmit="return addMessage(this)">
+    <!--Creamos un formulario para mandar mensajes-->
+    <input type="text" id="username" placeholder="Tu nombre">
+    <input type="text" id="texto" placeholder="Cuentanos Algo">
+    <input type="submit" value="Enviar">
+
+</form>
 </div>
 </body>
 </html>
